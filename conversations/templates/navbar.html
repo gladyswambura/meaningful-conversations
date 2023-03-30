@@ -33,7 +33,7 @@
     <nav class="navbar navbar-expand-md bg-dark fixed-top">
       <a class="navbar-brand">
        <!--<img src="img/dish.png" /> --> 
-       <h5 class="text-white">Meaningful-Conversations</h5>
+       <h5 class="text-uppercase text-white footer-name" style="font-family:'Merienda One', sans-serif;">Meaningful-Conversations</h5>
       </a>
       <button
         type="button"
@@ -45,18 +45,19 @@
       </button>
       <!-- Collection of nav links, forms, and other content for toggling -->
       <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start mx-auto">
-        <div class="navbar-nav">
+        <div class="navbar-nav" style="font-family: 'Courgette', cursive; font-size:20px; font-weight: bold;">
           <a href="/" class="nav-item nav-link active text-white">Home</a>
-          <a href="#" class="nav-item nav-link text-white">About</a>
-          <a href="#" class="nav-item nav-link text-white">Contact</a>
+          <a href="{% url 'about' %}" class="nav-item nav-link text-white">About</a>
+          <a href="{% url 'contact' %}" class="nav-item nav-link text-white">Contact</a>
         </div>
         <form class="navbar-form form-inline">
           <div class="input-group search-box">								
-            <input type="text" id="search" class="form-control" placeholder="Search by Name">
+            <input type="text" id="search" class="form-control" placeholder="Search Room...">
             <span class="input-group-addon"><i class="material-icons">&#xE8B6;</i></span>
           </div>
         </form>
         <div class="navbar-nav ml-auto">
+          <a href="{% url 'create_room' %}" class="btn btn-success text-center"> Create Room </a>
           <a href="#" class="nav-item nav-link notifications"><i class="fa fa-bell-o"></i><span class="badge">1</span></a>
           <a href="#" class="nav-item nav-link messages"><i class="fa fa-envelope-o"></i><span class="badge">10</span></a></a>
           
