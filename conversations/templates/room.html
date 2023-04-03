@@ -1,19 +1,52 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
-<br><br>
-<div class="container-fluid room-container">
-  <div>
-    <h2>Available Topics</h2>
-    <hr>
+{% extends 'base.html' %} {% load static %} {% block content %} <br /><br />
+
+<div class="container-fluid row" id="room-container">
+
+  <div class="comment-wrapper col-md-4 col-lg-4">
+    <div class="header text-center">
+      <h2 class="" style="font-family: 'Merienda One', sans-serif">Welcome to {{ room.name}}</h2>
+      <small class="card-title">Hosted by: {{room.host.username}}</small>
+      {% if request.user == room.host%}
+        <span class=""><a href="{% url 'delete_room' room.id %}" class="ml-5 btn btn-danger btn-sm"> Delete Room</a></span>
+      {% endif %}
+      <div class="container jumbotron">
+        <h3>Topic: {{ room.topic}}</h3>
+        <p class="lead text-left"><i>{{ room.description }}</i></p>
+      </div>
+    </div>
+    <br>
   </div>
 
-  <h1 class="room-page text-center" style="border-bottom: 1px solid green;">Welcome to {{ room.name}}</h1>
-  <h3>Yeey you are in {{ room.name}}</h3>
-  <h5 class="card-title">This room is hosted by: {{room.host.username }}</h5>
-  <a href="{% url 'delete_room' room.id %}"> Delete Room</a>
-  
-    
-  
-  
+  <div class="conversation col-md-4 col-lg-4">
+    <h2 class="" style="margin-left: 35%; font-family: 'Merienda One', sans-serif">Join The Conversation</h2>
+    {% for conversation in conversations %}
+    <div class="card  mb-1 p-3" style="width:600px">
+      <p>@ {{conversation.author}}:<small>{{conversation.created_at|timesince}} ago</small></p>
+      <p>{{conversation.content}}</p>
+      {% if request.user == conversation.user %}
+      <a href="{% url 'delete_comment' conversation.id %}"> Delete</a>
+      {% endif %}
+      <br>
+    </div>
+    {% endfor %} 
+    {% if request.user.is_authenticated %}
+    <div class="comment-form">
+      <form method="POST" action="">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="Add Comment" />
+      </form>
+    </div>
+    <br>
+    {% endif %}
+  </div>
+  <div class="col-md-1 col-lg-1"></div>
+
+  <div class="conversation col-md-3 col-lg-3 text-white" style="background-color: #343a40; margin-top: -1.9%;">
+    <h2 class="mt-5 text-white" style="margin-left: 35%; font-family: 'Merienda One', sans-serif">Room-Mates</h2>
+    {% for user in room_mates %}
+    <h5 class="text-center text-white mb-1">@ {{user.username }}</h5>
+    {% endfor %}
+  </div>
 </div>
   {% endblock content %}
 

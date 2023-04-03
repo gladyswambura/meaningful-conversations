@@ -11,6 +11,7 @@ class Topic(models.Model):
 class Room(models.Model):
     name = models.CharField(max_length=255)
     topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
+    room_mates = models.ManyToManyField(User, related_name="room_mates", blank=True)
     host = models.ForeignKey(User, on_delete=models.CASCADE, related_name='creator')
     description =models.TextField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)

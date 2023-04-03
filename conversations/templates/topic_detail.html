@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div class="container ">
+    {% for topic in topics %}
+    Topic detail for  {{topic_name}}
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
