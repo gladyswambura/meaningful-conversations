@@ -1,1 +1,1 @@
-web: gunicorn 'conversations.wsgi'
+web: gunicorn 'CONVERSATIONS.wsgi'
