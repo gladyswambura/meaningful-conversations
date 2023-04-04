@@ -44,7 +44,7 @@ As a user of Meaningful Conversations, you will be able to:
 
 
        CREATE DATABASE conversations; 
-       **if you opt to use your own database name, replace awwards your preferred name, then also update settings.py variable DATABASES > NAME
+       **if you opt to use your own database name, replace conversations your preferred name, then also update settings.py variable DATABASES > NAME
 
 5. Migrate the database using the command below
 
