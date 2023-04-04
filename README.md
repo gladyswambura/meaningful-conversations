@@ -14,7 +14,7 @@ Meaningful Conversations is a social networking web application that allows peop
 - Users can search for rooms based on topics.
 - Users can view the number of people who have joined a room.
 
-- ![image](https://user-images.githubusercontent.com/97955649/229700729-888f58d4-0151-4c6c-b8e6-26d77f67221f.png)
+ ![image](https://user-images.githubusercontent.com/97955649/229700729-888f58d4-0151-4c6c-b8e6-26d77f67221f.png)
 
 
 ## FEATURES && USER STORY 
@@ -74,7 +74,7 @@ If you have any question or contributions, please email me at [gladyswahito7@gma
 
 
 ## live link 
-https://gladysneighborhood.herokuapp.com/
+https://meaningful-conversations-production.up.railway.app/
 
 ## License
 This project is licensed under the MIT License - see the [MIT LICENSE](LICENSE) file for details.
