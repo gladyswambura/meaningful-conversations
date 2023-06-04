@@ -148,4 +148,4 @@ def about(request):
     return render(request, 'about.html')
 
 def contact(request):
-    return render(request, 'delete_comment.html')
+    return render(request, 'contact.html')

@@ -24,7 +24,7 @@ h2 {
 	left: 25%; /* Adjust the left position to center the underline */
 	bottom: -10px;
   }
-  
+
 .star-rating li {
 	padding: 0 2px;
 }
@@ -32,6 +32,17 @@ h2 {
 	font-size: 14px;
 	color: #fad600;
 }
+
+/* .navbar .navbar-brand {
+	color: white;
+	padding-left: 0;
+	padding-right: 50px;
+	font-family: 'Merienda One', sans-serif;
+}
+.navbar .navbar-brand {
+	font-size: 20px;
+	margin-right: 5px;
+} */
 .page-footer h5 .footer-name {
 	color: white;
 	padding-left: 0;
@@ -225,6 +236,7 @@ h2 {
   }
   
   #about-us-section {
+	background: #35a745;
 	width: 100%;
 	height: 50%;
 	display: flex;
@@ -244,12 +256,11 @@ h2 {
   
   .about-us-image {
 	position: absolute;
-	top: 5px;
+	top: 0;
 	right: 0;
-	width: 100%;
 	height: 100%;
-	object-fit: cover;
-  }  
+	overflow: hidden;
+  }
   
   @media screen and (max-width: 860px) {
 	.about-us-image {
