@@ -10,7 +10,8 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 import os
-import dotenv 
+import dotenv
+import dj_database_url
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -93,17 +94,20 @@ WSGI_APPLICATION = 'CONVERSATIONS.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#         # 'ENGINE': 'django.db.backends.postgresql',
+#         # 'NAME': 'railway',
+#         # 'USER': 'postgres',
+#         # 'PASSWORD': 'K7QnNMqyaoV4zmls24L9',
+#         # 'HOST': 'containers-us-west-210.railway.app',
+#         # 'PORT': '6553',
+#     }
+# }
 DATABASES = {
-    'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': BASE_DIR / 'db.sqlite3',
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'K7QnNMqyaoV4zmls24L9',
-        'HOST': 'containers-us-west-210.railway.app',
-        'PORT': '6553',
-    }
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
 }
 
 CSRF_TRUSTED_ORIGINS = [
@@ -144,7 +148,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-
+MEDIA_URL = 'media/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_DIRS = [
+    BASE_DIR / 'static'
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
